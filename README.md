@@ -304,18 +304,19 @@ npm test -- --coverage
 
 ### 2. Custom Container Orchestration
 
-**Why Not Kubernetes?**
-We built a custom orchestration system to demonstrate technical depth and have fine-grained control over:
-- Container lifecycle management
-- Resource allocation and monitoring
-- Security policy enforcement
-- Cost optimization through intelligent pooling
+**Why Build Custom Instead of Using Kubernetes or AWS Lambda?**
 
-**Features**
-- Minimal container images (<50MB)
-- Sub-second container startup
-- Intelligent worker pooling
-- Automatic cleanup and resource reclamation
+We built a custom Docker-based orchestration system to:
+- **Demonstrate Technical Depth**: Show understanding of containerization primitives (namespaces, cgroups, seccomp)
+- **Fine-Grained Control**: Implement custom security policies tailored to code execution
+- **Cost Optimization**: Intelligent container pooling and reuse reduces infrastructure costs
+- **Simplicity**: Avoid Kubernetes complexity for our specific use case
+
+**Key Features**:
+- Minimal container images (<50MB each for JavaScript, Python, C++, Rust)
+- Fast container startup (<1 second)
+- Intelligent worker pooling (reuse containers for same language)
+- Automatic cleanup and resource reclamation after execution
 
 ### 3. Advanced Isolation Techniques
 
@@ -405,8 +406,9 @@ SCALE_DOWN_THRESHOLD=2
 
 ## 📚 Documentation
 
-- **README.md** (this file) - Project overview, setup, and usage
-- **DESIGN.md** - Complete architecture, security, innovation, and API documentation
+- **README.md** (this file) - Project overview, features, setup instructions, and usage guide
+- **DESIGN.md** - Detailed technical documentation covering architecture, security mechanisms, innovative approaches, and complete API reference
+- **HOW_TO_CREATE_PDF.md** - Instructions for converting DESIGN.md to PDF format
 
 ## 🤝 Contributing
 

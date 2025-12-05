@@ -1,0 +1,36 @@
+<div class="app">
+  <header class="app-header">
+    <h1>Let'sCode Execution Engine</h1>
+    <p>Innovative code execution with client-side, serverless, and hybrid strategies</p>
+  </header>
+
+  <div class="app-content">
+    <div class="editor-section">
+      <div class="editor-controls">
+        <select 
+          [(ngModel)]="language" 
+          (change)="onLanguageChange(language)"
+          class="language-select">
+          <option value="javascript">JavaScript</option>
+          <option value="python">Python</option>
+          <option value="cpp">C++</option>
+          <option value="rust">Rust</option>
+        </select>
+
+        <button (click)="submitCode()" class="submit-button">
+          Submit Code
+        </button>
+      </div>
+
+      <app-code-editor
+        [code]="code"
+        [language]="language"
+        (codeChange)="onCodeChange($event)">
+      </app-code-editor>
+    </div>
+
+    <div class="results-section">
+      <app-submission-panel [submissionId]="submissionId"></app-submission-panel>
+    </div>
+  </div>
+</div>

@@ -9,12 +9,12 @@
   "scripts": {
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:backend": "npm run dev --workspace=@letscode/backend",
-    "dev:frontend": "npm run dev --workspace=@letscode/frontend",
+    "dev:frontend": "npm start --workspace=@letscode/frontend",
     "build": "npm run build --workspaces",
     "test": "npm run test --workspaces",
     "test:property": "npm run test:property --workspaces",
-    "lint": "eslint . --ext .ts,.tsx",
-    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write \"**/*.{ts,json,md}\"",
     "docker:build": "docker-compose build",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down"

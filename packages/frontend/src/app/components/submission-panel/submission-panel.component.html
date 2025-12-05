@@ -1,0 +1,78 @@
+<div class="submission-panel">
+  <div *ngIf="!submissionId" class="empty-state">
+    <p>Submit your code to see results</p>
+  </div>
+
+  <div *ngIf="loading && !submission" class="loading">
+    Loading...
+  </div>
+
+  <div *ngIf="error" class="error">
+    Error: {{ error }}
+  </div>
+
+  <div *ngIf="submission" class="panel-content">
+    <div class="panel-header">
+      <h2>Submission Results</h2>
+      <span [class]="'status-badge status-' + submission.status.toLowerCase()">
+        {{ submission.status }}
+      </span>
+    </div>
+
+    <div class="info-section">
+      <div class="info-item">
+        <span class="label">ID:</span>
+        <span class="value">{{ submission.id.substring(0, 8) }}...</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Language:</span>
+        <span class="value">{{ submission.language }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Strategy:</span>
+        <span class="value">{{ submission.executionStrategy.type }}</span>
+      </div>
+    </div>
+
+    <div *ngIf="submission.verdict" class="verdict-section">
+      <h3>Verdict</h3>
+      <div [class]="'verdict verdict-' + submission.verdict.status.toLowerCase().replace(/\\s+/g, '-')">
+        {{ submission.verdict.status }}
+      </div>
+      <div class="verdict-details">
+        <div class="detail-item">
+          <span class="label">Tests Passed:</span>
+          <span class="value">
+            {{ submission.verdict.passedTests }} / {{ submission.verdict.totalTests }}
+          </span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Max Time:</span>
+          <span class="value">{{ submission.verdict.maxTime }}ms</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Max Memory:</span>
+          <span class="value">{{ formatMemory(submission.verdict.maxMemory) }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="submission.testResults && submission.testResults.length > 0" class="test-results-section">
+      <h3>Test Cases</h3>
+      <div *ngFor="let result of submission.testResults" 
+           [class]="'test-case ' + (result.passed ? 'passed' : 'failed')">
+        <div class="test-header">
+          <span>Test Case {{ result.testCaseNumber }}</span>
+          <span [class]="'test-verdict ' + (result.passed ? 'passed' : 'failed')">
+            {{ result.verdict }}
+          </span>
+        </div>
+        <div class="test-details">
+          <span>Time: {{ result.executionTime }}ms</span>
+          <span>Memory: {{ formatMemory(result.memoryUsed) }}</span>
+        </div>
+        <div *ngIf="result.error" class="test-error">{{ result.error }}</div>
+      </div>
+    </div>
+  </div>
+</div>

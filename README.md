@@ -83,10 +83,10 @@ Intelligently routes between client and server based on:
 ## Technology Stack
 
 ### Frontend
-- **React 18** - UI framework
+- **Angular 17** - UI framework
 - **Monaco Editor** - Code editor (same as VS Code)
 - **TypeScript** - Type safety
-- **Vite** - Build tool
+- **Angular CLI** - Build tool
 
 ### Backend
 - **Node.js 20** - Runtime
@@ -148,7 +148,7 @@ npm run dev
 
 ### Submit Code via UI
 
-1. Open http://localhost:5173
+1. Open http://localhost:4200
 2. Select a programming language
 3. Write your code in the editor
 4. Click "Submit Code"
@@ -231,10 +231,12 @@ letscode-execution-engine/
 │   │       ├── queue/         # Redis queue
 │   │       ├── database/      # PostgreSQL
 │   │       └── websocket/     # Real-time updates
-│   └── frontend/              # React frontend
+│   └── frontend/              # Angular frontend
 │       └── src/
-│           ├── components/    # React components
-│           └── App.tsx
+│           ├── app/           # Angular app
+│           │   ├── components/  # Angular components
+│           │   └── services/    # Angular services
+│           └── main.ts
 ├── docker/                    # Language runtime images
 ├── scripts/                   # Setup and utility scripts
 ├── docker-compose.yml         # Infrastructure setup

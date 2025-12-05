@@ -13,6 +13,8 @@ COPY packages/shared ./packages/shared
 
 RUN npm run build --workspace=@letscode/shared
 
-EXPOSE 5173
+WORKDIR /app/packages/frontend
 
-CMD ["npm", "run", "dev", "--workspace=@letscode/frontend"]
+EXPOSE 4200
+
+CMD ["npm", "start", "--", "--host", "0.0.0.0"]

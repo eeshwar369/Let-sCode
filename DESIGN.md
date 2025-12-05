@@ -88,17 +88,24 @@ Let'sCode is a code execution platform that safely runs user-submitted code in m
 
 #### Frontend Components
 
-**Monaco Editor**
+**Angular Application**
+- Built with Angular 17 framework
+- Component-based architecture
+- Reactive forms and services
+- RxJS for async operations
+
+**Monaco Editor Component**
 - Professional code editor (same as VS Code)
 - Syntax highlighting for all supported languages
 - Auto-completion and error detection
 - Responsive layout
+- Integrated via ngx-monaco-editor-v2
 
-**Submission Controller**
-- Handles code submission
-- Manages WebSocket connections
+**Submission Panel Component**
 - Displays real-time execution status
 - Shows test results and verdicts
+- Polls for updates every 2 seconds
+- Handles WebSocket connections
 
 #### Backend Components
 
